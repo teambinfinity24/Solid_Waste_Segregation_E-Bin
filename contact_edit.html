@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Modal Background */
+        .modal {
+            display: flex; /* Always display for debugging; change to 'none' after */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* Close Button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            font-size: 16px;
+            font-family: Arial, sans-serif; /* Ensuring consistent font */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 24px); /* Adjusting to keep padding from touching the edges */
+        }
+
+        textarea {
+            resize: none;
+            min-height: 120px; /* Ensures proper height */
+        }
+
+        .submit-contact {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-contact:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">X</span>
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                <button type="submit" class="submit-contact">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var modal = document.getElementById("contactModal");
+            var closeBtn = document.querySelector(".close");
+            var submitBtn = document.querySelector(".submit-contact");
+
+            // Function to close the modal and return to home page
+            function closeModal() {
+                modal.style.display = "none";
+                window.location.href = "home1.html"; // Redirect to home
+            }
+
+            // Close modal on X button click
+            closeBtn.addEventListener("click", closeModal);
+
+            // Close modal if clicking outside content
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Submit form (Prevent default, alert, and redirect)
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                alert("Contact info submitted! Thank you.");
+                closeModal();
+            });
+        });
+    </script>
+
+</body>
+</html>

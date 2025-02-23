@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feedback-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        label {
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .description {
+            width: 100%;
+            height: 100px;
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="feedback-container">
+        <h2>Give Your Feedback</h2>
+
+        <div class="rating">
+            <label><input type="radio" name="rating" value="1"> 1 - Worst</label>
+            <label><input type="radio" name="rating" value="2"> 2 - Bad</label>
+            <label><input type="radio" name="rating" value="3"> 3 - Okay</label>
+            <label><input type="radio" name="rating" value="4"> 4 - Good</label>
+            <label><input type="radio" name="rating" value="5"> 5 - Best</label>
+        </div>
+
+        <textarea class="description" placeholder="Write your feedback here..."></textarea>
+
+        <button class="submit-btn" onclick="submitFeedback()">Submit</button>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            alert("Feedback submitted! Thank you.");
+            window.location.href = "home1.html"; // Redirects to home1.html
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        /* FAQ Background (Overlay) */
+        .faq-back {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* FAQ Container */
+        .faq-container {
+            background: #f9f9f9;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Close Button */
+        .close-btn3 {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .close-btn3:hover {
+            color: red;
+        }
+
+        /* FAQ Title */
+        .faq-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* FAQ Item */
+        .faq-item {
+            cursor: pointer;
+            padding: 12px;
+            background: #eee;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px; /* Added space under each question */
+            border-radius: 6px; /* Slight rounding for a softer look */
+        }
+
+        /* Answer Section */
+        .answer {
+            display: none;
+            padding: 12px;
+            background: #ddd;
+            margin-bottom: 15px; /* Space below each answer */
+            border-radius: 6px; /* Rounded edges */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FAQ Modal -->
+    <div class="faq-back">
+        <div class="faq-container">
+            <!-- Close button -->
+            <span class="close-btn3" onclick="closeFAQ()">&times;</span>
+            <h2 class="faq-title">FAQs</h2>
+
+            <!-- FAQ Questions -->
+            <div class="faq-item" onclick="toggleAnswer(1)">
+                <span>What is a smart bin, and how does it help in waste sorting?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer1">A smart bin is an automated waste bin equipped with sensors and AI technology to identify and sort waste into categories like plastic, metal, and organic waste. It improves recycling efficiency and reduces human error in waste segregation.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(2)">
+                <span>How do smart bins use alert signals to manage waste levels efficiently?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer2">Smart bins use sensors to monitor their capacity and send SMS alerts to users when they reach 50%, 75%, and 99% fullness. This helps in timely waste collection and prevents overflow.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(3)">
+                <span>How do smart bins reward users for recycling, such as when disposing of plastic bottles?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer3">Smart bins use a reward system that gives users points or incentives, like discounts or digital credits, when they correctly dispose of items like plastic bottles. This encourages recycling and reduces waste.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(4)">
+                <span>What are the advantages of using our smart bin compared to other foreign and Indian products?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer4">Our smart bin is more affordable and user-friendly, making it accessible to a wider audience. It maintains high efficiency while being cost-effective, catering to local needs better than expensive foreign alternatives.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(5)">
+                <span>How does using a smart bin impact the environment?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer5">Smart bins improve waste segregation, increasing recycling rates and reducing landfill waste. This decreases pollution, conserves natural resources, and minimizes the carbon footprint, positively impacting the environment.</div>
+
+            <!-- New Questions on Waste Management -->
+            <div class="faq-item" onclick="toggleAnswer(6)">
+                <span>How does an e-bin help in reducing landfill waste?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer6">E-bins ensure proper waste segregation, reducing the amount of non-recyclable waste sent to landfills. By encouraging recycling and composting, they significantly cut down landfill accumulation.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(7)">
+                <span>Can smart bins help in reducing plastic pollution?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer7">Yes! Smart bins encourage proper disposal and recycling of plastic materials. They also provide rewards for users who correctly recycle plastic bottles, helping to reduce pollution.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(8)">
+                <span>What role do smart bins play in public sanitation?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer8">Smart bins ensure proper waste disposal in public areas, reducing littering and keeping the environment clean. The automated waste level alerts also help prevent overflowing bins.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(9)">
+                <span>Are smart bins energy efficient?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer9">Most smart bins use low-energy sensors and can operate on solar power. This makes them eco-friendly and cost-effective in waste management.</div>
+
+            <div class="faq-item" onclick="toggleAnswer(10)">
+                <span>How can e-bins help in composting organic waste?</span>
+                <span>✔</span>
+            </div>
+            <div class="answer" id="answer10">E-bins can separate organic waste and send it for composting instead of landfills. This process helps create natural fertilizers and reduces methane emissions.</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            var answer = document.getElementById("answer" + id);
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        }
+
+        // Function to show the FAQ modal
+        function openFAQ() {
+            document.querySelector(".faq-back").style.display = "flex";
+        }
+
+        // Function to close the FAQ modal
+        function closeFAQ() {
+            window.location.href = "home1.html"; 
+        }
+
+        // Ensure FAQ button on home page triggers this
+        document.addEventListener("DOMContentLoaded", function () {
+            var faqButton = document.querySelector(".faq-button");
+            if (faqButton) {
+                faqButton.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    openFAQ();
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
